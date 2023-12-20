@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:schoolDb
+    username: sa
+    password: password
+  h2:
+    console.enable: true
+
+  application:
+    name: order-api
+  jpa:
+    hibernate:
+      ddl-auto: create
