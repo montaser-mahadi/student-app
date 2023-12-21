@@ -39,7 +39,8 @@ public class StudentServiceImpl implements StudentService {
         if (students.isEmpty()) {
             throw new ApiRequestException(StudentAppConstant.NO_RECORD_FOUND);
         }
-        return students.stream().map(StudentMapper::toDto).toList();
+        
+        return students.stream().map(StudentMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
@@ -59,7 +60,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<StudentDto> getStudents() {
         List<StudentEntity> students = studentRepository.findAllByIsDeleted(Boolean.FALSE);
-        return students.stream().map(StudentMapper::toDto).toList();
+        return students.stream().map(StudentMapper::toDto).collect(Collectors.toList());
     }
 
     @Override
